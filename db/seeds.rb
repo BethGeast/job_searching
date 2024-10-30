@@ -33,14 +33,6 @@ location_options = [
   "Amsterdam"
 ]
 
-# salary_options = rand(2500000..5000000)
-# deadline = Faker::Date.forward(days: 30)
-# last_update = Faker::Date.backward(days:30)
-# company = Faker::Company.name
-# job_title = Faker::Job.title
-# extra_notes = Faker::TvShows::TheOffice.quote
-# link = Faker::Internet.url
-
 10.times do
   job = Job.new(
     last_update: Faker::Date.backward(days: 30),
