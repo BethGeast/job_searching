@@ -1,1 +1,28 @@
 Jobs#index, also root page
+<div>
+  <div>
+    <h6>Status</h6>
+    <h6>Last Update</h6>
+    <h6>Deadline</h6>
+    <h6>Job Title</h6>
+    <h6>Company</h6>
+    <h6>Salary</h6>
+    <h6>Location</h6>
+    <h6>Link To Job Ad</h6>
+    <h6>Extra Notes</h6>
+  </div>
+
+  <% @jobs.each do |job| %>
+    <div>
+      <%= job.status %>
+      <%= job.last_update %>
+      <%= job.deadline %>
+      <%= job.job_title %>
+      <%= job.company %>
+      <%= job.salary %>
+      <%= job.location %>
+      <%= job.link %>
+      <%= job.extra_notes %>
+    </div>
+  <% end %>
+</div>
