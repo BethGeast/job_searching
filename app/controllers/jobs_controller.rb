@@ -3,6 +3,18 @@ class JobsController < ApplicationController
 
   def index
     @jobs = Job.all
+    case params[:sort]
+    when 'last_update'
+      @jobs = @jobs.order(last_update: :desc)
+    when 'deadline'
+      @jobs = @jobs.order(deadline: :asc)
+    when 'status'
+      @jobs = @jobs.order(status: :asc)
+    when 'salary_high'
+      @jobs = @jobs.order(salary: :desc)
+    when 'salary_low'
+      @jobs = @jobs.order(salary: :asc)
+    end
   end
 
   def new

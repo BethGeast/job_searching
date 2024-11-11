@@ -9,15 +9,16 @@ puts "Let's get crackin'..."
 puts "****************************"
 
 status_options = [
-  "Interested",
-  "Applied",
-  "Extended Application Sent",
+  "Bookmarked",
+  "Submitted",
+  "Further Application",
   "Technical Interview",
-  "Full Interview",
+  "Interview",
   "Unsuccessful",
   "Job Withdrawn",
   "Application Withdrawn",
-  "Job Offered"
+  "Offer Made",
+  "Contacted"
 ]
 
 location_options = [
@@ -33,7 +34,7 @@ location_options = [
   "Amsterdam"
 ]
 
-10.times do
+25.times do
   job = Job.new(
     last_update: Faker::Date.backward(days: 30),
     deadline: Faker::Date.forward(days: 30),

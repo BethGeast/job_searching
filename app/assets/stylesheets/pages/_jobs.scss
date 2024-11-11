@@ -1,0 +1,77 @@
+.page-container {
+  color: black;
+  // background-color: whitesmoke;
+  background-color: pink;
+  width: 100vw;
+
+  .table-wrapper {
+    background-color: initial;
+  }
+
+  .jobs-table {
+    width: 100vw;
+    border-collapse: collapse;
+    color: initial;
+    background-color: inherit;
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+      vertical-align: top;
+      white-space: normal;
+      word-wrap: break-word;
+      color: inherit;
+    }
+
+    tr.status-submitted {
+      background-color: green;
+    }
+
+    tr.status-bookmarked {
+      background-color: white;
+    }
+
+    tr.status-interview {
+      background-color: purple;
+    }
+
+    tr.status-technical-interview {
+      background-color: lightsalmon;
+    }
+
+    tr.status-further-application {
+      background-color: darkorange;
+    }
+
+    tr.status-unsuccessful {
+      background-color: yellow;
+    }
+
+    tr.status-job-withdrawn {
+      background-color: darkgrey;
+    }
+
+    tr.status-offer-made {
+      background-color: hotpink;
+    }
+
+    tr.status-contacted {
+      background-color: blue;
+    }
+
+    tr.status-application-withdrawn {
+      background-color: black;
+      color: white;
+    }
+
+    tr.status-bookmarked.soon-deadline {
+      background-color: red;
+      font-weight: bolder;
+      color: white;
+    }
+  }
+}
+
+.small-dropdown {
+  width: auto;
+}
