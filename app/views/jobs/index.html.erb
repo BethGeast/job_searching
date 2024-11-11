@@ -1,28 +1,50 @@
-Jobs#index, also root page
-<div>
-  <div>
-    <h6>Status</h6>
-    <h6>Last Update</h6>
-    <h6>Deadline</h6>
-    <h6>Job Title</h6>
-    <h6>Company</h6>
-    <h6>Salary</h6>
-    <h6>Location</h6>
-    <h6>Link To Job Ad</h6>
-    <h6>Extra Notes</h6>
+<%# Jobs#index, also root page %>
+<div class="page-container" data-controller="sort">
+  <h1>Job Applications</h1>
+  <%# Sort %>
+  <div class="mb-3">
+    <label for="sort-options" class="form-label">Sort by:</label>
+    <select id="sort-options" data-action="change->sort#sort" class="form-select small-dropdown">
+      <option value="" disabled selected>Please select...</option>
+      <option value="last_update">Most Recently Updated</option>
+      <option value="deadline">Nearest Deadline</option>
+      <option value="salary_high">Salary (Highest to Lowest)</option>
+      <option value="salary_low">Salary (Lowest to Highest)</option>
+      <option value="status">Application Status</option>
+    </select>
   </div>
 
-  <% @jobs.each do |job| %>
-    <div>
-      <%= job.status %>
-      <%= job.last_update %>
-      <%= job.deadline %>
-      <%= job.job_title %>
-      <%= job.company %>
-      <%= job.salary %>
-      <%= job.location %>
-      <%= job.link %>
-      <%= job.extra_notes %>
-    </div>
-  <% end %>
+  <%# Main Table %>
+
+  <table class="table jobs-table">
+    <thead>
+      <tr>
+        <th>Status</th>
+        <th>Last Update</th>
+        <th>Deadline</th>
+        <th>Job Title</th>
+        <th>Company</th>
+        <th>Salary</th>
+        <th>Location</th>
+        <th>Link To Job Ad</th>
+        <th>Extra Notes</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @jobs.each do |job| %>
+        <tr class="status-<%= job.status.downcase.tr(' ', '-') %> <%= 'soon-deadline' if job.deadline && job.deadline <= Date.today + 7.days %>">
+          <td><%= job.status %></td>
+          <td><%= job.last_update %></td>
+          <td><%= job.deadline %></td>
+          <td><%= job.job_title %></td>
+          <td><%= job.company %></td>
+          <td><%= job.salary %></td>
+          <td><%= job.location %></td>
+          <td><%= link_to 'View Job Advert', job.link, target: '_blank', class: 'text-wrap'%></td>
+          <td><%= job.extra_notes %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
